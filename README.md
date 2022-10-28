@@ -1,3 +1,5 @@
+**This is a cloned project of `https://github.com/vishnuchalla/slash`**
+
 <p align="center"><img width="500" src="./assets/slash.png"></p>
 
 **Shopping Made Easy**

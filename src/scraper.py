@@ -13,6 +13,7 @@ The scraper module holds functions that actually scrape the e-commerce websites
 import requests
 import formatter
 from bs4 import BeautifulSoup
+import html
 
 
 def httpsGet(URL):
@@ -159,8 +160,7 @@ def searchTarget(query, linkFlag):
     results = page['data']['search']['products']
     products = []
     for idx in range(len(results)):
-        titles = results[idx]['item']['product_description']['title'].replace(
-            '&#8482;', '')
+        titles = html.unescape(results[idx]['item']['product_description']['title'])
         prices = results[idx]['price']['formatted_current_price']
         if ('parent' in results[idx].keys()):
             ratings = results[idx]['parent']['ratings_and_reviews'][

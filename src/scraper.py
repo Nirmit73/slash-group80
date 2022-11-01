@@ -160,7 +160,8 @@ def searchTarget(query, linkFlag):
     results = page['data']['search']['products']
     products = []
     for idx in range(len(results)):
-        titles = html.unescape(results[idx]['item']['product_description']['title'])
+        titles = html.unescape(
+            results[idx]['item']['product_description']['title'])
         prices = results[idx]['price']['formatted_current_price']
         if ('parent' in results[idx].keys()):
             ratings = results[idx]['parent']['ratings_and_reviews'][

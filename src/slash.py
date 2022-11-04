@@ -16,6 +16,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__, template_folder='templates')
 
+
 @app.route("/run")
 def main():
     """
@@ -70,10 +71,11 @@ def main():
     print()
     print()
 
+
 @app.route("/")
 def hello():
     return render_template("UI.html")
-    
+
 
 if __name__ == '__main__':
     """

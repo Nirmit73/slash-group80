@@ -12,8 +12,11 @@ import scraper
 import formatter
 import email_utils
 from tabulate import tabulate
+from flask import Flask, render_template
 
+app = Flask(__name__, template_folder='templates')
 
+@app.route("/run")
 def main():
     """
     Argument parser to capture command line and trigger the workflow
@@ -67,9 +70,14 @@ def main():
     print()
     print()
 
+@app.route("/")
+def hello():
+    return render_template("UI.html")
+    
 
 if __name__ == '__main__':
     """
     Execution starts here.
     """
-    main()
+    app.run()
+    #main()

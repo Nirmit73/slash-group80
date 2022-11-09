@@ -13,6 +13,7 @@ import formatter
 import email_utils
 from tabulate import tabulate
 
+
 def main():
     """
     Argument parser to capture command line and trigger the workflow
@@ -65,6 +66,7 @@ def main():
     print("Done :)")
     print()
     print()
+
 
 if __name__ == '__main__':
     """

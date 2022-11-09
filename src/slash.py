@@ -44,6 +44,7 @@ def main():
     args = parser.parse_args()
 
     products0 = scraper.searchCostCo(args.search, args.link)
+    products4 = scraper.searchBestBuy(args.search, args.link)
     products1 = scraper.searchAmazon(args.search, args.link)
     products2 = scraper.searchWalmart(args.search, args.link)
     products3 = scraper.searchTarget(args.search, args.link)
@@ -54,6 +55,8 @@ def main():
         formatter.sortList(products2, args.sort, args.des)[:args.num])
     finalistList.append(
         formatter.sortList(products3, args.sort, args.des)[:args.num])
+    finalistList.append(
+        formatter.sortList(products0, args.sort, args.des)[:args.num])
     mergedResults = email_utils.alternateMerge(finalistList)
     results = formatter.sortList(mergedResults, args.sort, args.des)
 

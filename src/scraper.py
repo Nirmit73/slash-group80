@@ -239,3 +239,19 @@ def searcheBay(query, linkFlag):
         if prices is not None:
             products.append(product)
     return products
+
+
+# NOT DONE!
+def searchBestBuy(query, linkFlag):
+    query = formatter.formatSearchQuery(query)
+    URL = f'https://www.bestbuy.com/site/searchpage.jsp?st={query}'
+    
+    options = webdriver.ChromeOptions() # this saves all the configuration settings for our webdriver
+    options.add_argument('-headless') # this will open the browser silently, not displaying a window
+    driver = webdriver.Chrome(options=options) # this must point to where you've downloaded your web driver
+
+    driver.get(URL)
+    page = BeautifulSoup(driver.page_source, 'html.parser')
+    results = page.findAll('div', attrs={'class': 'shop-sku-list-item'})
+    print(results)
+    return 

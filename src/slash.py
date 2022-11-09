@@ -43,6 +43,7 @@ def main():
                         help="list of email to get notified")
     args = parser.parse_args()
 
+    products0 = scraper.searchCostCo(args.search, args.link)
     products1 = scraper.searchAmazon(args.search, args.link)
     products2 = scraper.searchWalmart(args.search, args.link)
     products3 = scraper.searchTarget(args.search, args.link)

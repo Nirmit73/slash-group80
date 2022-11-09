@@ -10,12 +10,13 @@ this file. If not, please write to: secheaper@gmail.com
 The scraper module holds functions that actually scrape the e-commerce websites
 """
 
+
+
+
 import requests
 import formatter
 from bs4 import BeautifulSoup
 import html
-
-
 def httpsGet(URL):
     """
     The httpsGet funciton makes HTTP called to the requested URL with custom headers
@@ -111,8 +112,9 @@ def searchAmazon(query, linkFlag):
         titles, prices, links = res.select("h2 a span"), res.select(
             "span.a-price span"), res.select("h2 a.a-link-normal")
         ratings = res.select("span.a-icon-alt")
+        ratingsCount = res.select("span.a-size-base")
         product = formatter.formatResult("amazon", titles, prices, links,
-                                         ratings)
+                                         ratings, ratingsCount)
         if not linkFlag:
             del product["link"]
         if prices is not None:
@@ -132,15 +134,17 @@ def searchWalmart(query, linkFlag):
     results = page.findAll("div", {"data-item-id": True})
     products = []
     for res in results:
-        titles, prices, links = res.select("span.lh-title"), res.select(
+        titles, prices, links = res.select("span.w_Bb"), res.select(
             "div.lh-copy"), res.select("a")
-        ratings = res.select("span.w_EU")
+        ratings = res.select("span.w_CC")
+        ratingsCount = res.select("span.sans-serif")
         if len(ratings) > 2:
-            ratings = [ratings[2]]
+            ratings = [ratings[len(ratings) - 1]]
         else:
             ratings = None
+            ratingsCount = None
         product = formatter.formatResult("walmart", titles, prices, links,
-                                         ratings)
+                                         ratings, ratingsCount)
         if not linkFlag:
             del product["link"]
         if prices is not None:
@@ -166,16 +170,20 @@ def searchTarget(query, linkFlag):
         if ('parent' in results[idx].keys()):
             ratings = results[idx]['parent']['ratings_and_reviews'][
                 'statistics']['rating']['average']
+            ratingsCount = results[idx]['parent']['ratings_and_reviews'][
+                'statistics']['rating']['count']
         else:
             ratings = results[idx]['ratings_and_reviews']['statistics'][
                 'rating']['average']
+            ratingsCount = results[idx]['ratings_and_reviews'][
+                'statistics']['rating']['count']
         if 'primary_brand' in results[idx]['item']:
             links = URL + str(
                 results[idx]['item']['primary_brand']['canonical_url'])
         else:
             links = ''
         product = formatter.formatResult("target", titles, prices, links,
-                                         ratings)
+                                         ratings, ratingsCount)
         if not linkFlag:
             del product["link"]
         if prices is not None:

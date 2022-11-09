@@ -11,14 +11,15 @@ The formatter module focuses on processing raw text and returning it in
 the required format. 
 """
 
+
+
+
 from datetime import datetime
 import math
 import pytz
 import re
 import pyshorteners
-
-
-def formatResult(website, titles, prices, links, ratings):
+def formatResult(website, titles, prices, links, ratings, ratingsCount):
     """
     The formatResult function takes the scraped HTML as input, and extracts the 
     necessary values from the HTML code. Ex. extracting a price '$19.99' from
@@ -31,12 +32,14 @@ def formatResult(website, titles, prices, links, ratings):
     return: formatted result of the product
     """
 
-    title, price, link, rating = '', '', '', ''  # the default values when the data is not available in scrapped
+    # the default values when the data is not available in scrapped
+    title, price, link, rating, ratingCount = '', '', '', '', ''
     # websites
     if website == "target":
         title = titles
     else:
-        if titles: title = titles[0].get_text().strip()
+        if titles:
+            title = titles[0].get_text().strip()
 
     if website == "target":
         price = prices
@@ -56,10 +59,18 @@ def formatResult(website, titles, prices, links, ratings):
 
     if website == "target":
         rating = ratings
+    elif website == "walmart":
+        if ratings:
+            rating = ratings[0].get_text().split()[0]
     else:
         if ratings:
             rating = ratings[0].get_text().split()[0]
 
+    if website == "target":
+        ratingCount = ratingsCount
+    else:
+        if ratingsCount:
+            ratingCount = ratingsCount[0].get_text().split()[0]
     product = {
         'timestamp':
         datetime.now(
@@ -72,6 +83,8 @@ def formatResult(website, titles, prices, links, ratings):
         website,
         "rating":
         rating if rating != '' else 'N.A',
+        "ratingCount":
+        ratingCount if ratingCount != '' else 'N.A',
         "link":
         f'www.{website}.com{link}',
         "link":
@@ -155,7 +168,8 @@ def linkShortener(long_url):
 
     The linkShortener function shortens the url of the item.
     """
-    if not bool(long_url): return "https://www.ncsu.edu/"
+    if not bool(long_url):
+        return "https://www.ncsu.edu/"
     type_tiny = pyshorteners.Shortener()
     short_url = type_tiny.tinyurl.short(long_url)
     return short_url

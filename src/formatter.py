@@ -61,6 +61,9 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
     elif website == "walmart":
         if ratings:
             rating = ratings[0].get_text().split()[0]
+    elif website == "costco":
+        if ratings:
+            rating = ratings[0].get_text().split()[1]
     else:
         if ratings:
             rating = ratings[0].get_text().split()[0]

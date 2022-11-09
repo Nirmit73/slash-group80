@@ -13,6 +13,7 @@ The scraper module holds functions that actually scrape the e-commerce websites
 import requests
 import formatter
 from bs4 import BeautifulSoup
+from selenium import webdriver
 import html
 
 
@@ -182,6 +183,33 @@ def searchTarget(query, linkFlag):
         else:
             links = ''
         product = formatter.formatResult("target", titles, prices, links,
+                                         ratings, ratingsCount)
+        if not linkFlag:
+            del product["link"]
+        if prices is not None:
+            products.append(product)
+    return products
+
+def searchCostCo(query, linkFlag):
+    query = formatter.formatSearchQuery(query)
+    URL = f'https://www.costco.com/CatalogSearch?dept=All&keyword={query}'
+    options = webdriver.ChromeOptions()
+    # options.add_argument('-headless')
+    driver = webdriver.Chrome(chrome_options=options)
+    driver.get(URL)
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    results = soup.findAll("div", {"class": "product"})
+    driver.quit()
+    products = []
+    for res in results:
+        titles, prices, links = res.select("span.description"), res.select(
+            "div.price"), res.select("a")
+        ratings = res.select("span.offscreen")
+        ratingsCount = res.select("div.ratings-number")
+        if not ratings:
+            ratings = None
+            ratingsCount = None
+        product = formatter.formatResult("costco", titles, prices, links,
                                          ratings, ratingsCount)
         if not linkFlag:
             del product["link"]

@@ -216,3 +216,26 @@ def searchCostCo(query, linkFlag):
         if prices is not None:
             products.append(product)
     return products
+
+def searcheBay(query, linkFlag):
+    """
+    The searcheBay function scrapes eBay.com
+    :param query: search keyword to perform the query
+    return: returns the products list from eBay
+    """
+    query = formatter.formatSearchQuery(query)
+    URL = f'https://www.ebay.com/sch/i.html?_nkw={query}'
+    page = httpsGet(URL)
+    results = page.findAll("div", {"data-component-type": "s-search-result"})
+    products = []
+    for res in results:
+        titles, prices, links = res.select("h2 a span"), res.select(
+            "span.a-price span"), res.select("h2 a.a-link-normal")
+        ratings = res.select("span.a-icon-alt")
+        product = formatter.formatResult("eBay", titles, prices, links,
+                                         ratings)
+        if not linkFlag:
+            del product["link"]
+        if prices is not None:
+            products.append(product)
+    return products

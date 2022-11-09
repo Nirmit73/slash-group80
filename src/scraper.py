@@ -10,13 +10,12 @@ this file. If not, please write to: secheaper@gmail.com
 The scraper module holds functions that actually scrape the e-commerce websites
 """
 
-
-
-
 import requests
 import formatter
 from bs4 import BeautifulSoup
 import html
+
+
 def httpsGet(URL):
     """
     The httpsGet funciton makes HTTP called to the requested URL with custom headers
@@ -175,8 +174,8 @@ def searchTarget(query, linkFlag):
         else:
             ratings = results[idx]['ratings_and_reviews']['statistics'][
                 'rating']['average']
-            ratingsCount = results[idx]['ratings_and_reviews'][
-                'statistics']['rating']['count']
+            ratingsCount = results[idx]['ratings_and_reviews']['statistics'][
+                'rating']['count']
         if 'primary_brand' in results[idx]['item']:
             links = URL + str(
                 results[idx]['item']['primary_brand']['canonical_url'])

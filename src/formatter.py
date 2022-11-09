@@ -11,14 +11,13 @@ The formatter module focuses on processing raw text and returning it in
 the required format. 
 """
 
-
-
-
 from datetime import datetime
 import math
 import pytz
 import re
 import pyshorteners
+
+
 def formatResult(website, titles, prices, links, ratings, ratingsCount):
     """
     The formatResult function takes the scraped HTML as input, and extracts the 

@@ -13,6 +13,7 @@ def hello():
 def my_form_post():
     text = request.form['text']
     processed_text = text.lower()
+    print(processed_text)
     return (os.popen(f'python3 slash.py {processed_text}')).read()
 
 

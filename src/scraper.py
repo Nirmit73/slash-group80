@@ -194,7 +194,7 @@ def searchCostCo(query, linkFlag):
     query = formatter.formatSearchQuery(query)
     URL = f'https://www.costco.com/CatalogSearch?dept=All&keyword={query}'
     options = webdriver.ChromeOptions()
-    # options.add_argument('-headless')
+    options.add_argument('-headless')
     driver = webdriver.Chrome(chrome_options=options)
     driver.get(URL)
     soup = BeautifulSoup(driver.page_source, "html.parser")

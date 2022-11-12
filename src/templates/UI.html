@@ -25,78 +25,78 @@
                         DESCRIPTION COMES HERE
                     </p>
                 </div>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="search_item" placeholder="What do you want to search?">
+                <form id="get-search" action="{{ url_for("my_form_post")}}" method="POST">
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="search_item" name="search_item" placeholder="What do you want to search?" required>
+                        </div>
+                        <input type="number" class="form-control" id="num_item" name="num_item" placeholder="Maximum amount of records">
                     </div>
-                    <input type="number" class="form-control" id="num_item" placeholder="Amount of items">
-                </div>
-                <br>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                    <select class="form-select" name="sort" id="sort_item">
-                        <option disabled selected value>--Sort by--</option>
-                        <option value="relevance">relevance</option>
-                        <option value="price">price</option>
-                        <option value="rating">rating</option>
-                    </select>
-                    <select class="form-select" name="search_order" id="order_item">
-                        <option disabled selected value>--Order by--</option>
-                        <option value="Ascending">Ascending</option>
-                        <option value="Descending">Descending</option>
-                    </select>
-                    <input type="email" class="form-control" id="email" placeholder="Type your email">
-                </div>
-                <br>
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Search</button>
+                    <br>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <select class="form-select" name="sort_item" id="sort_item">
+                            <option selected hidden value="relevance">--Sort by--</option>
+                            <option value="relevance">relevance</option>
+                            <option value="price">price</option>
+                            <option value="rating">rating</option>
+                        </select>
+                        <select class="form-select" name="order_item" id="order_item">
+                            <option selected hidden value="Ascending">--Order by--</option>
+                            <option value="Ascending">Ascending</option>
+                            <option value="Descending">Descending</option>
+                        </select>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Type your email">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Search</button>
+                </form>
             </div>
     
             <div class="px-4 py-5 my-5">
+                <h2>SEARCH RESULTS</h2>
                 <hr>
-                OUTPUT COMES HERE IN TABLE FORMAT
                 <table class="table">
                     <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Item</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Rating</th>
-                        <th scope="col">Site</th>
-                        <th scope="col">Link</th>
-                      </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Timestamp</th>
+                            <th scope="col">Item</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Site</th>
+                            <th scope="col">Rating</th>
+                            <th scope="col">Rating counts</th>
+                            <th scope="col">Link</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                      </tr>
+                      <!-- For loop logic of jinja template -->
+                        {%if len and result%}
+                        {%for i in range(0, len)%}
+                        <!-- table rows -->
+                        <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{result[i]['timestamp']}}</td>
+                            <td>{{result[i]['title']}}</td>
+                            <td>{{result[i]['price']}}</td>
+                            <td>{{result[i]['website']}}</td>
+                            <td>{{result[i]['rating']}}</td>
+                            <td>{{result[i]['ratingCount']}}</td>
+                            <td><a href="{{result[i]['link']}}" target="_blank">{{result[i]['link']}}</a></td>
+                        {%endfor%}
+                        </tr>
+                        {%endif%}
                     </tbody>
                   </table>
 
             </div>
             
+            <ol>
+                  
+                </ol>
         </main>
         
-        <footer class="footer fixed-bottom py-3 bg-light">
+
+        <footer class="navbar fixed-bottom py-3 bg-light">
             <div class="container-fluid">
                 <span class="text-center text-muted">CSC510 SOFTWARE ENGINEERING PROJECT. SLASH. 2022.</span>
             </div>

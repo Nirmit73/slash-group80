@@ -10,13 +10,14 @@ this file. If not, please write to: secheaper@gmail.com
 The scraper module holds functions that actually scrape the e-commerce websites
 """
 
+
+
+
 import requests
 import formatter
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import html
-
-
 def httpsGet(URL):
     """
     The httpsGet funciton makes HTTP called to the requested URL with custom headers
@@ -134,15 +135,14 @@ def searchWalmart(query, linkFlag):
     results = page.findAll("div", {"data-item-id": True})
     products = []
     for res in results:
-        titles, prices, links = res.select("span.w_Bb"), res.select(
-            "div.lh-copy"), res.select("a")
-        ratings = res.select("span.w_CC")
+        titles = res.find(
+            'span', attrs={'data-automation-id': 'product-title'})
+        if titles is None:
+            titles = res.find('span', attrs={'class': 'f5-m'})
+        prices = res.select("div.lh-copy")
+        links = res.select("a")
+        ratings = res.select("div.flex.items-center.mt2")
         ratingsCount = res.select("span.sans-serif")
-        if len(ratings) > 2:
-            ratings = [ratings[len(ratings) - 1]]
-        else:
-            ratings = None
-            ratingsCount = None
         product = formatter.formatResult("walmart", titles, prices, links,
                                          ratings, ratingsCount)
         if not linkFlag:
@@ -190,6 +190,7 @@ def searchTarget(query, linkFlag):
             products.append(product)
     return products
 
+
 def searchCostCo(query, linkFlag):
     query = formatter.formatSearchQuery(query)
     URL = f'https://www.costco.com/CatalogSearch?dept=All&keyword={query}'
@@ -216,6 +217,7 @@ def searchCostCo(query, linkFlag):
         if prices is not None:
             products.append(product)
     return products
+
 
 def searcheBay(query, linkFlag):
     """
@@ -245,13 +247,16 @@ def searcheBay(query, linkFlag):
 def searchBestBuy(query, linkFlag):
     query = formatter.formatSearchQuery(query)
     URL = f'https://www.bestbuy.com/site/searchpage.jsp?st={query}'
-    
-    options = webdriver.ChromeOptions() # this saves all the configuration settings for our webdriver
-    options.add_argument('-headless') # this will open the browser silently, not displaying a window
-    driver = webdriver.Chrome(options=options) # this must point to where you've downloaded your web driver
+
+    # this saves all the configuration settings for our webdriver
+    options = webdriver.ChromeOptions()
+    # this will open the browser silently, not displaying a window
+    options.add_argument('-headless')
+    # this must point to where you've downloaded your web driver
+    driver = webdriver.Chrome(options=options)
 
     driver.get(URL)
     page = BeautifulSoup(driver.page_source, 'html.parser')
     results = page.findAll('div', attrs={'class': 'shop-sku-list-item'})
     print(results)
-    return 
+    return

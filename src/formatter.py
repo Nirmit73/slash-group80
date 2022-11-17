@@ -11,13 +11,14 @@ The formatter module focuses on processing raw text and returning it in
 the required format. 
 """
 
+
+
+
 from datetime import datetime
 import math
 import pytz
 import re
 import pyshorteners
-
-
 def formatResult(website, titles, prices, links, ratings, ratingsCount):
     """
     The formatResult function takes the scraped HTML as input, and extracts the 
@@ -36,6 +37,9 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
     # websites
     if website == "target":
         title = titles
+    elif website == "walmart":
+        if titles:
+            title = titles.get_text().strip()
     else:
         if titles:
             title = titles[0].get_text().strip()
@@ -50,6 +54,11 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
 
     if website == "target":
         link = links
+    elif website == "walmart":
+        if links:
+            link = links[0]['href']
+            if link.startswith('/'):
+                link = f'www.{website}.com{link}'
     else:
         if links:
             link = links[0]['href']
@@ -60,7 +69,7 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
         rating = ratings
     elif website == "walmart":
         if ratings:
-            rating = ratings[0].get_text().split()[0]
+            rating = ratings[0].get_text().split()[1]
     elif website == "costco":
         if ratings:
             rating = ratings[0].get_text().split()[1]

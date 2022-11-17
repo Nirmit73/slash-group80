@@ -37,3 +37,4 @@ zipp==3.5.0
 DateTime==4.3
 pytz==2022.2.1
 pyshorteners==1.0.1
+selenium==4.6.0

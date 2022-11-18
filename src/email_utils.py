@@ -182,8 +182,8 @@ def write_data(results, linkFlag, receiver_emails):
         print("No email to send data. Hence not sending the email")
         return
     fieldnames = [
-        'title', 'website', 'price', 'rating', 'timestamp', 'link'
-    ] if linkFlag else ['timestamp', 'title', 'price', 'website', 'rating']
+        'title', 'website', 'price', 'rating', 'ratingCount','timestamp', 'link'
+    ] if linkFlag else ['timestamp', 'title', 'price', 'website', 'rating','ratingCount']
     tempFile = tempfile.NamedTemporaryFile(delete=True)
     try:
         with open(tempFile.name, "w+t") as f:

@@ -59,6 +59,9 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
             link = links[0]['href']
             if link.startswith('/'):
                 link = f'www.{website}.com{link}'
+    elif website == "costco":
+        if links:
+            link = links[0]['href']
     else:
         if links:
             link = links[0]['href']

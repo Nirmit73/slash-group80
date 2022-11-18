@@ -49,6 +49,8 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
 
     if website == "target":
         price = prices
+    elif website == "eBay":
+        price = prices[0].get_text().strip()
     elif website == "bestbuy":
         if prices:
             price = prices.get_text().strip()
@@ -68,7 +70,7 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
             link = links[0]['href']
             if link.startswith('/'):
                 link = f'www.{website}.com{link}'
-    elif website == "costco":
+    elif website == "costco" or website == "eBay":
         if links:
             link = links[0]['href']
     elif website == "bestbuy":
@@ -86,9 +88,15 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
     elif website == "bestbuy":
         if ratings:
             rating = ratings.get_text().split()[1]
-    elif website == "costco" or "walmart":
+    elif website == "walmart":
         if ratings:
             rating = ratings[0].get_text().split()[1]
+    elif website == "costco":
+        if ratings:
+            if ratings[0].get_text() == "No Reviews":
+                rating = 0
+            else:
+                rating = ratings[0].get_text().split()[1]
     else:
         if ratings:
             rating = ratings[0].get_text().split()[0]

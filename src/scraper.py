@@ -257,6 +257,19 @@ def searchBestBuy(query, linkFlag):
 
     driver.get(URL)
     page = BeautifulSoup(driver.page_source, 'html.parser')
+    driver.close()
     results = page.findAll('div', attrs={'class': 'shop-sku-list-item'})
-    print(results)
-    return
+    products = []
+    for res in results:
+        titles = res.find('h4', attrs={'class': 'sku-title'})
+        prices = res.find('div', attrs={'class': 'priceView-customer-price'})
+        links = res.find('a', attrs={'class': 'image-link'})
+        ratings = res.find('div', attrs={'class': 'c-ratings-reviews'})
+        ratingsCount = res.find('span', attrs={'class': 'c-reviews'})
+        product = formatter.formatResult("bestbuy", titles, prices, links,
+                                         ratings, ratingsCount)
+        if not linkFlag:
+            del product["link"]
+        if prices is not None:
+            products.append(product)
+    return products

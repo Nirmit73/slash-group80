@@ -14,10 +14,11 @@ import email_utils
 from tabulate import tabulate
 import browser
 
+
 def main(search_item, num_item, sort_item, order_item, email):
     order_des = False
     sort = 're'
-    if order_item=="Descending":
+    if order_item == "Descending":
         order_des = True
 
     if sort_item == "price":
@@ -25,12 +26,13 @@ def main(search_item, num_item, sort_item, order_item, email):
     elif sort_item == "rating":
         sort = 'ra'
 
-    products0 = scraper.searchAmazon(search_item, True)     # default linkflag(args.link) == True
+    # default linkflag(args.link) == True
+    products0 = scraper.searchAmazon(search_item, True)
     products1 = scraper.searchWalmart(search_item, True)
     products2 = scraper.searchTarget(search_item, True)
-    products3 = scraper.searchCostCo(search_item, True)
+    products3 = scraper.searchBestBuy(search_item, True)
     # products4 = scraper.searcheBay(search_item, True)
-    # products5 = scraper.searchBestBuy(search_item, True)
+    # products5 = scraper.searchCostCo(search_item, True)
     finalistList = []
     finalistList.append(
         formatter.sortList(products0, sort, order_des)[:num_item])
@@ -44,7 +46,7 @@ def main(search_item, num_item, sort_item, order_item, email):
     #     formatter.sortList(products4, sort, order_des)[:num_item])
     # finalistList.append(
     #     formatter.sortList(products5, sort, order_des)[:num_item])
-    
+
     mergedResults = email_utils.alternateMerge(finalistList)
     results = formatter.sortList(mergedResults, sort, order_des)
 
@@ -60,4 +62,3 @@ def main(search_item, num_item, sort_item, order_item, email):
     print()
 
     return results
-

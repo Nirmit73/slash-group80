@@ -227,23 +227,28 @@ def searcheBay(query, linkFlag):
     """
     query = formatter.formatSearchQuery(query)
     URL = f'https://www.ebay.com/sch/i.html?_nkw={query}'
-    page = httpsGet(URL)
-    results = page.findAll("div", {"data-component-type": "s-search-result"})
+    options = webdriver.ChromeOptions()
+    options.add_argument('-headless')
+    driver = webdriver.Chrome(chrome_options=options)
+    driver.get(URL)
+    soup = BeautifulSoup(driver.page_source, "html.parser")
+    results = soup.findAll("div", {"class": "s-item__info"})
+    driver.quit()
     products = []
     for res in results:
-        titles, prices, links = res.select("h2 a span"), res.select(
-            "span.a-price span"), res.select("h2 a.a-link-normal")
-        ratings = res.select("span.a-icon-alt")
+        titles, prices, links = res.select("div.s-item__title span"), res.select(
+            "span.s-item__price"), res.select("a.s-item__link")
+        ratings = None
+        ratingsCount = None
         product = formatter.formatResult("eBay", titles, prices, links,
-                                         ratings)
+                                         ratings, ratingsCount)
         if not linkFlag:
             del product["link"]
         if prices is not None:
             products.append(product)
-    return products
+    return products[1:]
 
 
-# NOT DONE!
 def searchBestBuy(query, linkFlag):
     query = formatter.formatSearchQuery(query)
     URL = f'https://www.bestbuy.com/site/searchpage.jsp?st={query}'

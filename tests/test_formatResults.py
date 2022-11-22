@@ -21,6 +21,12 @@ def test_sortList():
     assert formatter.sortList(arr, "pr", False) == ansArr
     assert formatter.sortList(arr, "pr", True) == revAnsArr
 
+    arr = [{"rating": "3"}, {"rating": "5"}, {"rating": "1"}]
+    ansArr = [{"rating": "1"}, {"rating": "3"}, {"rating": "5"}]
+    revAnsArr = [{"rating": "5"}, {"rating": "3"}, {"rating": "1"}]
+    assert formatter.sortList(arr, "ra", False) == ansArr
+    assert formatter.sortList(arr, "ra", True) == revAnsArr
+
 
 def test_formatResults():
     """
@@ -38,13 +44,14 @@ def test_formatResults():
             "html.parser")
     ]
     ratingsCount = [
-       BeautifulSoup(
+        BeautifulSoup(
             '<span class="w_EU">162 Reviews. </span>',
             "html.parser")
     ]
     links = []
 
-    product = formatter.formatResult("example", titles, prices, links, ratings, ratingsCount)
+    product = formatter.formatResult(
+        "example", titles, prices, links, ratings, ratingsCount)
     ans = {
         "title": "title",
         "price": "$0.99",
@@ -56,5 +63,5 @@ def test_formatResults():
     print(product["website"], ans["website"])
 
     assert product["title"] == ans["title"] and product["price"] == ans["price"] and \
-           product["website"] == ans["website"] and product["rating"] == ans["rating"] \
-           and product["link"] == ans["link"]
+        product["website"] == ans["website"] and product["rating"] == ans["rating"] \
+        and product["link"] == ans["link"]

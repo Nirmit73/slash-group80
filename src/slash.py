@@ -25,7 +25,8 @@ def main(search_item, num_item, sort_item, order_item, email):
         sort = 'pr'
     elif sort_item == "rating":
         sort = 'ra'
-
+    
+    #Default
     # default linkflag(args.link) == True
     products0 = scraper.searchAmazon(search_item, True)
     products1 = scraper.searchWalmart(search_item, True)
@@ -46,7 +47,49 @@ def main(search_item, num_item, sort_item, order_item, email):
     #     formatter.sortList(products4, sort, order_des)[:num_item])
     # finalistList.append(
     #     formatter.sortList(products5, sort, order_des)[:num_item])
+    
+    
+    """
+    #Threading:
+    t0 = time.time()
+    print(t0)
+    finalistList = []
+    
+    thread = threading.Thread(target=finalistList.append(
+        formatter.sortList(scraper.searchAmazon(search_item, True), sort, order_des)[:num_item]), daemon=True)
 
+    thread1 = threading.Thread(target=finalistList.append(
+        formatter.sortList(scraper.searchWalmart(search_item, True), sort, order_des)[:num_item]), daemon=True)
+
+    thread2 = threading.Thread(target=finalistList.append(
+        formatter.sortList(scraper.searchTarget(search_item, True), sort, order_des)[:num_item]), daemon=True)
+
+    #thread3 = threading.Thread(target=finalistList.append(
+    #    formatter.sortList(scraper.searchBestBuy(search_item, True), sort, order_des)[:num_item]), daemon=True)
+
+    thread4 = threading.Thread(target=finalistList.append(
+        formatter.sortList(scraper.searcheBay(search_item, True), sort, order_des)[:num_item]), daemon=True)
+    
+    t1 = time.time()
+    print(t1)
+    print(t1-t0)   
+    """
+    
+    """
+    Concurrent Futures:
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        executor.submit( finalistList.append(
+        formatter.sortList(scraper.searchAmazon(search_item, True), sort, order_des)[:num_item]))     # default linkflag(args.link) == True
+        executor.submit( finalistList.append(
+        formatter.sortList(scraper.searchWalmart(search_item, True), sort, order_des)[:num_item]))
+        executor.submit( finalistList.append(
+        formatter.sortList(scraper.searchTarget(search_item, True), sort, order_des)[:num_item]))
+        #executor.submit( finalistList.append(
+        #formatter.sortList(scraper.searchCostCo(search_item, True), sort, order_des)[:num_item]))
+    """
+    
+    
     mergedResults = email_utils.alternateMerge(finalistList)
     results = formatter.sortList(mergedResults, sort, order_des)
 

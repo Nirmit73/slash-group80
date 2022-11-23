@@ -72,3 +72,35 @@ def test_searchBestBuy():
     for p in products:
         assert p["title"] is not None
         assert p["price"] is not None
+
+
+def test_searchCostCo():
+    """
+    Checks the searchCostCo function
+    """
+    products = scraper.searchCostCo("Apple computer", True)
+    assert len(products) > 0
+    for p in products:
+        assert p["title"] is not None
+        assert p["price"] is not None
+    products = scraper.searchCostCo("Apple Computer", False)
+    assert len(products) > 0
+    for p in products:
+        assert p["title"] is not None
+        assert p["price"] is not None
+
+
+def test_searcheBay():
+    """
+    Checks the searcheBay function
+    """
+    products = scraper.searcheBay("Apple computer", True)
+    assert len(products) > 0
+    for p in products:
+        assert p["title"] is not None
+        assert p["price"] is not None
+    products = scraper.searcheBay("Apple Computer", False)
+    assert len(products) > 0
+    for p in products:
+        assert p["title"] is not None
+        assert p["price"] is not None

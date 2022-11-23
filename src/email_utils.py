@@ -184,7 +184,7 @@ def write_data(results, linkFlag, receiver_emails):
     fieldnames = [
         'title', 'website', 'price', 'rating', 'ratingCount','timestamp', 'link'
     ] if linkFlag else ['timestamp', 'title', 'price', 'website', 'rating','ratingCount']
-    tempFile = tempfile.NamedTemporaryFile(delete=True)
+    tempFile = tempfile.NamedTemporaryFile(delete=False)
     try:
         with open(tempFile.name, "w+t") as f:
             writer = csv.DictWriter(f, delimiter='\t', fieldnames=fieldnames)

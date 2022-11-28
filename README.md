@@ -79,7 +79,8 @@ Currently the tool supports the following flags and command line arguments. Thes
 | Email   | str  | "" (empty) | list of comma separated emails to send notifications |
 
 :card_index_dividers: Some Examples
----
+--- 
+<p align="center"><img width="700" src="./src/static/input.jpg"></p>
 
 #### 1. Searching
 ```Search```  accepts one argument string which it uses to search and scrape the requested products on 
@@ -101,7 +102,10 @@ the value of ```n``` and the number of results on the webiste. By default this v
 The results display links by default.  
   
 #### 6. Email Notification
-There is an option to send emails to customers using a parameter that accepts a comma separated list of emails. The field can be empty.  
+There is an option to send emails to customers using a parameter that accepts a comma separated list of emails. The field can be empty.   
+  
+#### Sample output  
+<p align="center"><img width="700" src="./src/static/result.jpg"></p>
   
 
 :thought_balloon: Use Case

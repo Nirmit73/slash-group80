@@ -18,11 +18,16 @@
 
         <main class="flex-shrink-0">
             <div class="px-4 py-5 my-5 text-center">
-                <h2 style="color:red">ADD LOGO HERE</h2>
-                <h1 class="display-5 fw-bold">SLASH</h1>
+                <!-- <h2 style="color:red">ADD LOGO HERE</h2> -->
+                <img src="static/slash.png" alt="Slash logo">
+                <!-- <h1 class="display-5 fw-bold">SLASH</h1> -->
+                
                 <div class="col-lg-6 mx-auto">
-                    <p class="lead mb-4" style="color:red">
-                        DESCRIPTION COMES HERE
+                    <p class="lead mb-4" style="font-weight: bold;">
+                        <br>
+                        Slash is a tool that scrapes the most popular e-commerce websites to get the best deals on the searched items across these websites.
+                        <br>
+                        The results are from <span style="color:brown">Walmart, Target, Amazon, Costco.</span>
                     </p>
                 </div>
                 <form id="get-search" action="{{ url_for("my_form_post")}}" method="POST">

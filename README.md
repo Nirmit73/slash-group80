@@ -14,7 +14,7 @@
 ![Github closed pull requests](https://img.shields.io/github/issues-pr-closed/vishnuchalla/slash)
 [![codecov](https://codecov.io/gh/vishnuchalla/slash/branch/main/graph/badge.svg?token=VO0F809CJT)](https://codecov.io/gh/vishnuchalla/slash)
 
-Slash is a command line tool that scrapes the most popular e-commerce websites to get the best deals on the searched items across these websites. 
+Slash is a website that scrapes the most popular e-commerce websites to get the best deals on the searched items across these websites. 
 - **Fast**: With slash, you can save over 50% of your time by comparing deals across websites within seconds
 - **Easy**: Slash uses very easy commands to filter, sort and search your items
 - **Powerful**: Quickly alter the commands to get desired results
@@ -59,11 +59,12 @@ pip3 install -r requirements.txt
 cd src
 
 For Mac
-python3 slash.py --search icecream
+python3 browser.py
 
 For Windows
-python slash.py --search icecream
+python browser.py
 ```
+Then open [http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 :golf: Flags and Command Line Arguments
 ---
 Currently the tool supports the following flags and command line arguments. These flags and arguments can be used to quickly filter and guide the search to get you the best results very quickly.

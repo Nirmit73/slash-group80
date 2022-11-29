@@ -5,6 +5,7 @@ Grader: self evaluation
 
 |Notes|score|evidence|
 |-----|-----|---------|
+|Total|||
 |Video1|0|Very important: A **5min** video of new functionality, showing a significant delta from old. |
 |Bonus: Xfold improvement|0|Not Implemented|
 |Docs: what: point descriptions of each class/function (in isolation) |0||

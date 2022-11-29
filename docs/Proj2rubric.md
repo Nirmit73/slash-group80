@@ -5,20 +5,20 @@ Grader: self evaluation
 
 |Notes|score|evidence|
 |-----|-----|---------|
-|Video1||Very important: A **5min** video of new functionality, showing a significant delta from old. |
-|Bonus: Xfold improvement|| In some aspect of the code; theoretical complexity, runtime, memory, developer time...|
-|Docs: what: point descriptions of each class/function (in isolation) |||
-|Use of style checkers ||config files in GH showing your config|
-|Use of code formatters. ||config files in GH showing your this formatter's  config|
-|Use of syntax checkers. ||config files iin  GH showing this checker's config  |
-|Use of code coverage ||config files in GH|
-|Other automated analysis tools||config files in GH|
+|Video1|0|Very important: A **5min** video of new functionality, showing a significant delta from old. |
+|Bonus: Xfold improvement|0|Not Implemented|
+|Docs: what: point descriptions of each class/function (in isolation) |0||
+|Use of style checkers |3|https://github.com/spark1217/slash-group32/blob/main/.github/workflows/python-app.yml|
+|Use of code formatters. |3|https://github.com/spark1217/slash-group32/blob/main/.github/workflows/python-app.yml|
+|Use of syntax checkers. |3|https://github.com/spark1217/slash-group32/blob/main/.github/workflows/python-app.yml  |
+|Use of code coverage |3|https://github.com/spark1217/slash-group32/blob/main/.github/workflows/workflow.yml|
+|Other automated analysis tools|3|https://github.com/spark1217/slash-group32/actions|
 |Workload is spread over the whole team (one team member is often Xtimes more productive than the others... 
-|but nevertheless, here is a track record that everyone is contributing a lot)||evidence in GH|
-|Number of commits||in GH|
-|Number of commits: by different people||in GH|
-|Issues reports: there are **many**|||
-|Issues are being closed||evidence in GH|
+|but nevertheless, here is a track record that everyone is contributing a lot)|3|https://github.com/spark1217/slash-group32/graphs/contributors|
+|Number of commits|3|https://github.com/spark1217/slash-group32|
+|Number of commits: by different people||https://github.com/spark1217/slash-group32/graphs/contributors|
+|Issues reports: there are **many**|2|https://github.com/spark1217/slash-group32/issues|
+|Issues are being closed|3|https://github.com/spark1217/slash-group32/issues|
 |DOI badge: exists||in GH|
 |Docs: doco generated, format not ugly ||in GH|
 |Docs: how: for common use cases X,Y,Z mini-tutorials showing worked examples on how to do X,Y,Z||doc page entries|

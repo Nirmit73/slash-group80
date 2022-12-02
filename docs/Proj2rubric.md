@@ -14,8 +14,7 @@ Grader: self evaluation
 |Use of syntax checkers. |3|https://github.com/spark1217/slash-group32/blob/main/.github/workflows/python-app.yml  |
 |Use of code coverage |3|https://github.com/spark1217/slash-group32/blob/main/.github/workflows/workflow.yml|
 |Other automated analysis tools|3|https://github.com/spark1217/slash-group32/actions|
-|Workload is spread over the whole team (one team member is often Xtimes more productive than the others... 
-|but nevertheless, here is a track record that everyone is contributing a lot)|3|https://github.com/spark1217/slash-group32/graphs/contributors|
+|Workload is spread over the whole team (one team member is often Xtimes more productive than the others but nevertheless, here is a track record that everyone is contributing a lot)|3|https://github.com/spark1217/slash-group32/graphs/contributors|
 |Number of commits|3|https://github.com/spark1217/slash-group32|
 |Number of commits: by different people||https://github.com/spark1217/slash-group32/graphs/contributors|
 |Issues reports: there are **many**|2|https://github.com/spark1217/slash-group32/issues|

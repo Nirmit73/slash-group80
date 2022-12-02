@@ -5,7 +5,7 @@ Grader: self evaluation
 
 |Notes|score|evidence|
 |-----|-----|---------|
-|Total|||
+|Total|247||
 |Video1|0|Very important: A **5min** video of new functionality, showing a significant delta from old. |
 |Bonus: Xfold improvement|0|Not Implemented|
 |Docs: what: point descriptions of each class/function (in isolation) |3|https://github.com/spark1217/slash-group32/tree/main/docs|

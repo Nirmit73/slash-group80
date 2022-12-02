@@ -249,32 +249,15 @@ def searcheBay(query, linkFlag):
     return products[1:]
 
 
-def searchBestBuy(query, linkFlag):
-    query = formatter.formatSearchQuery(query)
-    URL = f'https://www.bestbuy.com/site/searchpage.jsp?st={query}'
-
-    # this saves all the configuration settings for our webdriver
-    options = webdriver.ChromeOptions()
-    # this will open the browser silently, not displaying a window
-    options.add_argument('-headless')
-    # this must point to where you've downloaded your web driver
-    driver = webdriver.Chrome(options=options)
-
-    driver.get(URL)
-    page = BeautifulSoup(driver.page_source, 'html.parser')
-    driver.close()
-    results = page.findAll('div', attrs={'class': 'shop-sku-list-item'})
-    products = []
-    for res in results:
-        titles = res.find('h4', attrs={'class': 'sku-title'})
-        prices = res.find('div', attrs={'class': 'priceView-customer-price'})
-        links = res.find('a', attrs={'class': 'image-link'})
-        ratings = res.find('div', attrs={'class': 'c-ratings-reviews'})
-        ratingsCount = res.find('span', attrs={'class': 'c-reviews'})
-        product = formatter.formatResult("bestbuy", titles, prices, links,
-                                         ratings, ratingsCount)
-        if not linkFlag:
-            del product["link"]
-        if prices is not None:
-            products.append(product)
-    return products
+def searchStore(store_name, query, linkFlag):
+    if store_name == "walmart":
+        return searchWalmart(query, linkFlag)
+    elif store_name == "amazon":
+        return searchAmazon(query, linkFlag)
+    elif store_name == "target":
+        return searchTarget(query, linkFlag)
+    elif store_name == "costco":
+        return searchCostCo(query, linkFlag)
+    elif store_name == "ebay":
+        return searcheBay(query, linkFlag)
+    return

@@ -58,22 +58,6 @@ def test_searchTarget():
         assert p["price"] is not None
 
 
-def test_searchBestBuy():
-    """
-    Checks the searchBestBuy function
-    """
-    products = scraper.searchBestBuy("Apple computer", True)
-    assert len(products) > 0
-    for p in products:
-        assert p["title"] is not None
-        assert p["price"] is not None
-    products = scraper.searchBestBuy("Apple Computer", False)
-    assert len(products) > 0
-    for p in products:
-        assert p["title"] is not None
-        assert p["price"] is not None
-
-
 def test_searchCostCo():
     """
     Checks the searchCostCo function

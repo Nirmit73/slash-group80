@@ -40,9 +40,6 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
     elif website == "walmart":
         if titles:
             title = titles.get_text().strip()
-    elif website == "bestbuy":
-        if titles:
-            title = titles.get_text().strip()
     else:
         if titles:
             title = titles[0].get_text().strip()
@@ -51,12 +48,6 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
         price = prices
     elif website == "eBay":
         price = prices[0].get_text().strip()
-    elif website == "bestbuy":
-        if prices:
-            price = prices.get_text().strip()
-            price = re.search(r"(?<=\$)(?:(?!\$).)*$", price)
-            price = price.group()
-            price = '$' + price
     else:
         if prices:
             price = prices[0].get_text().strip()
@@ -73,10 +64,6 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
     elif website == "costco" or website == "eBay":
         if links:
             link = links[0]['href']
-    elif website == "bestbuy":
-        if links:
-            link = links['href']
-            link = f'www.{website}.com{link}'
     else:
         if links:
             link = links[0]['href']
@@ -85,9 +72,6 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
 
     if website == "target":
         rating = ratings
-    elif website == "bestbuy":
-        if ratings:
-            rating = ratings.get_text().split()[1]
     elif website == "walmart":
         if ratings:
             rating = ratings[0].get_text().split()[1]
@@ -103,9 +87,6 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
 
     if website == "target":
         ratingCount = ratingsCount
-    elif website == "bestbuy":
-        if ratingsCount:
-            ratingCount = ratingsCount.get_text().split()[0][1:-1]
     else:
         if ratingsCount:
             ratingCount = ratingsCount[0].get_text().split()[0]

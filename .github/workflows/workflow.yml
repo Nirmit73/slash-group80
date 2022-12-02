@@ -14,17 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@main
-      - uses: codecov/codecov-action@v2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Generate coverage report
-        run: |
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          pip install pytest
-          pip install pytest-cov
-          export PYTHONPATH=src
-          pytest --cov=./ --cov-report=xml
 
       - uses: nanasess/setup-chromedriver@v1
         with:
@@ -36,6 +25,18 @@ jobs:
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+          
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          
+      - name: Generate coverage report
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install pytest
+          pip install pytest-cov
+          export PYTHONPATH=src
+          pytest --cov=./ --cov-report=xml
           
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2

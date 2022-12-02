@@ -30,7 +30,7 @@ def main(search_item, num_item, sort_item, order_item, email):
         sort = 'pr'
     elif sort_item == "rating":
         sort = 'ra'
-
+    # """
     # Default
     # default linkflag(args.link) == True
     timeInitDefault = time.time()
@@ -53,7 +53,7 @@ def main(search_item, num_item, sort_item, order_item, email):
         formatter.sortList(products_costco, sort, order_des)[:num_item])
 
     timeDiffDefault = time.time() - timeInitDefault
-
+    # """
     """
     # Threading:
     timeInitThreading = time.time()
@@ -105,21 +105,18 @@ def main(search_item, num_item, sort_item, order_item, email):
     finalistList = []
 
     stores = ['amazon', 'walmart', 'target', 'costco', 'ebay']
-    pool = ThreadPool(5)
+    pool = ThreadPool(len(stores))
     results = pool.starmap(scraper.searchStore,
                            zip(stores, itertools.repeat(search_item), itertools.repeat(True)))
-    finalistList.append(results[0][:num_item])
-    finalistList.append(results[1][:num_item])
-    finalistList.append(results[2][:num_item])
-    finalistList.append(results[3][:num_item])
-    finalistList.append(results[4][:num_item])
+    for x in range(0, len(results)):
+        finalistList.append(results[x][:num_item])
 
     timeDiffPool = time.time() - timeInitPool
     """
     mergedResults = email_utils.alternateMerge(finalistList)
     results = formatter.sortList(mergedResults, sort, order_des)
 
-    #print(f"Default: {timeDiffDefault}")
+    print(f"Default: {timeDiffDefault}")
     #print(f"Threading: {timeDiffThreading}")
     #print(f"Concurrent Futures: {timeDiffFutures}")
     #print(f"Pool: {timeDiffPool}")

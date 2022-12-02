@@ -12,8 +12,8 @@
 ![Github closes issues](https://img.shields.io/github/issues-closed-raw/spark1217/slash-group32)
 ![Github pull requests](https://img.shields.io/github/issues-pr/spark1217/slash-group32)
 ![Github closed pull requests](https://img.shields.io/github/issues-pr-closed/spark1217/slash-group32)
-[![codecov](https://codecov.io/gh/vishnuchalla/slash/branch/main/graph/badge.svg?token=VO0F809CJT)](https://codecov.io/gh/vishnuchalla/slash)
-
+[![codecov](https://codecov.io/github/spark1217/slash-group32/branch/main/graph/badge.svg?token=RHWIT7YGAD)](https://codecov.io/github/spark1217/slash-group32)  
+  
 Slash is a website that scrapes the most popular e-commerce websites to get the best deals on the searched items across these websites. 
 - **Fast**: With slash, you can save over 50% of your time by comparing deals across websites within seconds
 - **Easy**: Slash uses very easy commands to filter, sort and search your items

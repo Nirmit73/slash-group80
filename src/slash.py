@@ -38,8 +38,9 @@ def main(search_item, num_item, sort_item, order_item, email):
     # Create a thread for each store
     pool = ThreadPool(len(stores))
     # Scrape each store using the search item
-    results = pool.starmap(scraper.searchStore,
-                           zip(stores, itertools.repeat(search_item), itertools.repeat(True)))
+    results = pool.starmap(
+        scraper.searchStore,
+        zip(stores, itertools.repeat(search_item), itertools.repeat(True)))
     # Appends results to final list of products
     for x in range(0, len(results)):
         finalistList.append(results[x][:num_item])

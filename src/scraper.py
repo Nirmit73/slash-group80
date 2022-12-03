@@ -10,14 +10,13 @@ this file. If not, please write to: secheaper@gmail.com
 The scraper module holds functions that actually scrape the e-commerce websites
 """
 
-
-
-
 import requests
 import formatter
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import html
+
+
 def httpsGet(URL):
     """
     The httpsGet funciton makes HTTP called to the requested URL with custom headers
@@ -135,8 +134,8 @@ def searchWalmart(query, linkFlag):
     results = page.findAll("div", {"data-item-id": True})
     products = []
     for res in results:
-        titles = res.find(
-            'span', attrs={'data-automation-id': 'product-title'})
+        titles = res.find('span',
+                          attrs={'data-automation-id': 'product-title'})
         if titles is None:
             titles = res.find('span', attrs={'class': 'f5-m'})
         prices = res.select("div.lh-copy")
@@ -236,8 +235,9 @@ def searcheBay(query, linkFlag):
     driver.quit()
     products = []
     for res in results:
-        titles, prices, links = res.select("div.s-item__title span"), res.select(
-            "span.s-item__price"), res.select("a.s-item__link")
+        titles, prices, links = res.select(
+            "div.s-item__title span"), res.select(
+                "span.s-item__price"), res.select("a.s-item__link")
         ratings = None
         ratingsCount = None
         product = formatter.formatResult("eBay", titles, prices, links,

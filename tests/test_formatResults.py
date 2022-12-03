@@ -39,19 +39,16 @@ def test_formatResults():
         BeautifulSoup('<div class="someclass">$0.99  </div>', "html.parser")
     ]
     ratings = [
-        BeautifulSoup(
-            '<span class="w_EU">4.1 out of 5 Stars. </span>',
-            "html.parser")
+        BeautifulSoup('<span class="w_EU">4.1 out of 5 Stars. </span>',
+                      "html.parser")
     ]
     ratingsCount = [
-        BeautifulSoup(
-            '<span class="w_EU">162 Reviews. </span>',
-            "html.parser")
+        BeautifulSoup('<span class="w_EU">162 Reviews. </span>', "html.parser")
     ]
     links = []
 
-    product = formatter.formatResult(
-        "example", titles, prices, links, ratings, ratingsCount)
+    product = formatter.formatResult("example", titles, prices, links, ratings,
+                                     ratingsCount)
     ans = {
         "title": "title",
         "price": "$0.99",

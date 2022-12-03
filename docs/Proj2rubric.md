@@ -5,7 +5,7 @@ Grader: self evaluation
 
 |Notes|score|evidence|
 |-----|-----|---------|
-|Total|247||
+|Total|253||
 |Video1|0|Very important: A **5min** video of new functionality, showing a significant delta from old. |
 |Bonus: Xfold improvement|0|Not Implemented|
 |Docs: what: point descriptions of each class/function (in isolation) |3|https://github.com/spark1217/slash-group32/tree/main/docs|
@@ -72,7 +72,7 @@ Grader: self evaluation
 |Do you back-up your repository?|3|Most likely saved on local machines for work purposes|
 |Do you provide publicly-available instructions for building your software from the source code?|0||
 |Can you build, or package, your software using an automated tool?|3||
-|Do you provide publicly-available instructions for deploying your software?|1||
+|Do you provide publicly-available instructions for deploying your software?|3|https://github.com/spark1217/slash-group32/blob/main/INSTALL.md|
 |Does your documentation list all third-party dependencies?|3|https://github.com/spark1217/slash-group32/blob/main/requirements.txt|
 |Does your documentation list the version number for all third-party dependencies?|3|it is in requirements.txt,https://github.com/spark1217/slash-group32/blob/main/requirements.txt|
 |Does your software list the web address, and licences for all third-party dependencies and say whether the dependencies are mandatory or optional?|1|Only lists their names|
@@ -101,7 +101,7 @@ Grader: self evaluation
 |Is your software released under an open source licence?|3|GNU General Public License v3.0|
 |Is your software released under an OSI-approved open-source licence?|3|https://github.com/spark1217/slash-group32/blob/main/LICENSE|
 |Does each of your source code files include a licence header?|3|https://github.com/spark1217/slash-group32/tree/main/docs|
-|Do you have a recommended citation for your software?|0||
+|Do you have a recommended citation for your software?|3|https://github.com/spark1217/slash-group32/blob/main/CITATION.md|
 |Does your website or documentation include a project roadmap (a list of project and development milestones for the next 3, 6 and 12 months)?|0||
 |Does your website or documentation describe how your project is funded, and the period over which funding is guaranteed?|3|github general repository|
 |Do you make timely announcements of the deprecation of components, APIs, etc.?|3|https://github.com/spark1217/slash-group32/tree/main/docs|

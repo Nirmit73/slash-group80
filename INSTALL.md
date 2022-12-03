@@ -1,4 +1,4 @@
-# Installation Guide for StockImpulse
+# Installation Guide for Slash
 These are step by step instructions on how to start developing using our repository.
 ## Clone the Repository
 1) Go to the [repository homepage](https://github.com/spark1217/slash-group32)

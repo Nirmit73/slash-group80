@@ -36,7 +36,10 @@ https://youtu.be/5rhigwURrYY
   <li><a href="#email-support">Support</a></li>
   
 </ul>
-
+---
+:video_camera: Video
+---
+[![Video Explainer](./assets/video.jpg)](https://www.youtube.com/watch?v=5rhigwURrYY)
 ---
 
 <p align="center"><img width="700" src="./assets/DemoGif.gif"></p>

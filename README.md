@@ -42,7 +42,7 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
 :video_camera: Video
 ---
 
-<p align="center"><img width="700" src=[![Introducing Slash](https://github.com/spark1217/slash-group32/blob/main/assets/video.jpg)](https://youtu.be/5rhigwURrYY "Introducing Slash")</p>
+<iframe  title="YouTube video player" width="700" height="500" src="https://www.youtube.com/watch?v=5rhigwURrYY" frameborder="0" allowfullscreen></iframe>
  
 ---
 

@@ -79,7 +79,11 @@ def formatResult(website, titles, prices, links, ratings, ratingsCount):
             if ratings[0].get_text() == "No Reviews":
                 rating = 0
             else:
-                rating = ratings[0].get_text().split()[1]
+                temp = ratings[0].get_text().split()
+                if len(temp) > 1:
+                    rating = temp[1]
+                else:
+                    rating = "N.A"
     else:
         if ratings:
             rating = ratings[0].get_text().split()[0]

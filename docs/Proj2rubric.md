@@ -6,7 +6,7 @@ Grader: self evaluation
 |Notes|score|evidence|
 |-----|-----|---------|
 |Total|253||
-|Video1|0|Very important: A **5min** video of new functionality, showing a significant delta from old. |
+|Video1|3|https://github.com/spark1217/slash-group32#readme |
 |Bonus: Xfold improvement|0|Not Implemented|
 |Docs: what: point descriptions of each class/function (in isolation) |3|https://github.com/spark1217/slash-group32/tree/main/docs|
 |Use of style checkers |3|https://github.com/spark1217/slash-group32/blob/main/.github/workflows/python-app.yml|

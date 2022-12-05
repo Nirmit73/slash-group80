@@ -38,7 +38,7 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
   
 </ul>
 <p align = "center">
-<iframe width="700" src="https://www.youtube.com/embed/5rhigwURrYY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Introducing Slash](https://github.com/spark1217/slash-group32/blob/main/assets/video.jpg)](https://www.youtube.com/watch?v=5rhigwURrYY "Introducing Slash")
 </p>
 ---
 

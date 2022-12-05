@@ -19,7 +19,7 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
 - **Easy**: Slash uses very easy commands to filter, sort and search your items
 - **Powerful**: Quickly alter the commands to get desired results
 - **Informative**: Provides the information about items through an email with attached csv file
-https://youtu.be/5rhigwURrYY
+
 <ul align="left">
   <li> <a href="#rocket-installation">Installation</a> </li>
   
@@ -39,7 +39,7 @@ https://youtu.be/5rhigwURrYY
 ---
 :video_camera: Video
 ---
-[![Video Explainer](./assets/video.jpg)](https://www.youtube.com/watch?v=5rhigwURrYY)
+[![Video Explainer]("./assets/video.jpg")](https://www.youtube.com/watch?v=5rhigwURrYY)
 ---
 
 <p align="center"><img width="700" src="./assets/DemoGif.gif"></p>

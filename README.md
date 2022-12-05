@@ -21,6 +21,8 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
 - **Informative**: Provides the information about items through an email with attached csv file
 
 <ul align="left">
+  <li> <a href="#video_camera-video">Video</a> </li>
+  
   <li> <a href="#rocket-installation">Installation</a> </li>
   
   <li> <a href="#golf-flags-and-command-line-arguments">Flags & Args</a> </li>
@@ -38,8 +40,11 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
 </ul>
 ---
 :video_camera: Video
+---
 
-[![Introducing Slash](https://github.com/spark1217/slash-group32/blob/main/assets/video.jpg)](https://youtu.be/5rhigwURrYY "Introducing Slash")
+<p align="center"><img width="700" src=[![Introducing Slash](https://github.com/spark1217/slash-group32/blob/main/assets/video.jpg)](https://youtu.be/5rhigwURrYY "Introducing Slash")</p>
+ 
+---
 
 <p align="center"><img width="700" src="./assets/DemoGif.gif"></p>
 

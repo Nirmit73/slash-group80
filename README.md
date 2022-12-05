@@ -38,10 +38,10 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
   
 </ul>
 
+Video Walkthrough (Click on the image below)
+
 [![Introducing Slash](https://github.com/spark1217/slash-group32/blob/main/assets/video.jpg)](https://www.youtube.com/watch?v=5rhigwURrYY "Introducing Slash")
 
-
-<p align="center"><img width="700" src="./assets/DemoGif.gif"></p>
 
 ---
 

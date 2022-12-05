@@ -19,7 +19,7 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
 - **Easy**: Slash uses very easy commands to filter, sort and search your items
 - **Powerful**: Quickly alter the commands to get desired results
 - **Informative**: Provides the information about items through an email with attached csv file
-
+https://youtu.be/5rhigwURrYY
 <ul align="left">
   <li> <a href="#rocket-installation">Installation</a> </li>
   

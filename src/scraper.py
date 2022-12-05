@@ -10,13 +10,14 @@ this file. If not, please write to: secheaper@gmail.com
 The scraper module holds functions that actually scrape the e-commerce websites
 """
 
+
+
+
 import requests
 import formatter
 from bs4 import BeautifulSoup
 from selenium import webdriver
 import html
-
-
 def httpsGet(URL):
     """
     The httpsGet funciton makes HTTP called to the requested URL with custom headers
@@ -42,6 +43,8 @@ def httpsGetTarget(URL, query):
     """
     The httpsGetTarget function makes HTTP called to the requested URL with custom headers and params specific to Target website
     return: returns json from the target URL
+    :param query: search keyword to perform the query
+    return: returns the json from calling Target
     """
     headers = {
         'authority':
@@ -191,6 +194,11 @@ def searchTarget(query, linkFlag):
 
 
 def searchCostCo(query, linkFlag):
+    """
+    The searchCostCo function scrapes hidden API of costco.com
+    :param query: search keyword to perform the query
+    return: returns the product list from costco
+    """
     query = formatter.formatSearchQuery(query)
     URL = f'https://www.costco.com/CatalogSearch?dept=All&keyword={query}'
     options = webdriver.ChromeOptions()
@@ -250,6 +258,12 @@ def searcheBay(query, linkFlag):
 
 
 def searchStore(store_name, query, linkFlag):
+    """
+    The searchStore function scrapes hidden API of the given store
+    :param store_name: The name of the store to be scraped
+    :param query: search keyword to perform the query
+    return: returns the product list from target
+    """
     if store_name == "walmart":
         return searchWalmart(query, linkFlag)
     elif store_name == "amazon":

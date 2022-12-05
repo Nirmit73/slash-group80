@@ -11,13 +11,14 @@ The formatter module focuses on processing raw text and returning it in
 the required format. 
 """
 
+
+
+
 from datetime import datetime
 import math
 import pytz
 import re
 import pyshorteners
-
-
 def formatResult(website, titles, prices, links, ratings, ratingsCount):
     """
     The formatResult function takes the scraped HTML as input, and extracts the 
@@ -187,8 +188,8 @@ def getNumbers(st):
 
 def linkShortener(long_url):
     """
-
     The linkShortener function shortens the url of the item.
+    :param long_url: The long version of the url being shortened
     """
     if not bool(long_url):
         return "https://www.ncsu.edu/"

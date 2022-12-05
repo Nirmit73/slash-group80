@@ -21,6 +21,17 @@ import itertools
 
 
 def main(search_item, num_item, sort_item, order_item, email):
+    """
+    Works with other files to scrape all sites with the given
+    search query. Returns a list of products with products
+    from all stores.
+    :param search_item: search keyword to perform the query
+    :param num_item: amount of products to return per store
+    :param sort_item: how the products should be sorted
+    :param order_item: whether items should be sorted ascending or descending
+    :param email: email to send results to if any was given
+    return: returns the product list
+    """
     order_des = False
     sort = 're'
     if order_item == "Descending":
@@ -44,7 +55,6 @@ def main(search_item, num_item, sort_item, order_item, email):
     # Appends results to final list of products
     for x in range(0, len(results)):
         finalistList.append(results[x][:num_item])
-    print(results)
     mergedResults = email_utils.alternateMerge(finalistList)
     results = formatter.sortList(mergedResults, sort, order_des)
 

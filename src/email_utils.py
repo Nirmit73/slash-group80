@@ -1,3 +1,9 @@
+"""
+This file is responsible for sending emails to the user if
+they choose to have an email sent. The email contains all
+of the results from their SLASH search.
+"""
+
 import tempfile
 import smtplib
 from email.mime.multipart import MIMEMultipart

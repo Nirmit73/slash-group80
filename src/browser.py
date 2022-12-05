@@ -1,3 +1,8 @@
+"""
+This file starts the local server and processes information from the frontend.
+This information comes from UI.html.
+"""
+
 from flask import Flask, render_template, request
 import os
 import slash
@@ -7,11 +12,18 @@ app = Flask(__name__, template_folder='templates')
 
 @app.route("/")
 def main():
+    """
+    Loads the frontend for the user to interact with
+    """
     return render_template("UI.html")
 
 
 @app.route("/", methods=['GET', 'POST'])
 def my_form_post():
+    """
+    When the user makes a search inquiry grabs the information
+    from frontend and sends it to backend.
+    """
     if request.method == "POST":
         if request.form['search_item']:
             search_item = request.form['search_item']

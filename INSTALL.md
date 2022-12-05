@@ -8,3 +8,5 @@ These are step by step instructions on how to start developing using our reposit
 
 ## Install Required Dependencies
 The program relies on certain libraries to run. These can be easily installed by running ```pip install -r requirements.txt``` from inside the root of the project.
+
+Google chrome is required to be installed on the user's computer in order to use SLASH. This is due to the webscraping package Selenium requiring a browser driver.

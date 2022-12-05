@@ -129,7 +129,7 @@ There is an option to send emails to customers using a parameter that accepts a 
 To have a better understanding of the code, please click on the [link](https://spark1217.github.io/slash-group32/src/index.html) provided below.
 
 [Github Pages](https://spark1217.github.io/slash-group32/src/index.html)
-
+  
 
 :sparkles: Contributors
 ---

@@ -37,10 +37,9 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
   <li><a href="#email-support">Support</a></li>
   
 </ul>
-<p align = "center">
+
 [![Introducing Slash](https://github.com/spark1217/slash-group32/blob/main/assets/video.jpg)](https://www.youtube.com/watch?v=5rhigwURrYY "Introducing Slash")
-</p>
----
+
 
 <p align="center"><img width="700" src="./assets/DemoGif.gif"></p>
 

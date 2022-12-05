@@ -5,7 +5,7 @@ Grader: self evaluation
 
 |Notes|score|evidence|
 |-----|-----|---------|
-|Total|253||
+|Total|256||
 |Video1|3|https://github.com/spark1217/slash-group32#readme |
 |Bonus: Xfold improvement|0|Not Implemented|
 |Docs: what: point descriptions of each class/function (in isolation) |3|https://github.com/spark1217/slash-group32/tree/main/docs|

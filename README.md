@@ -21,7 +21,6 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
 - **Informative**: Provides the information about items through an email with attached csv file
 
 <ul align="left">
-  <li> <a href="#video_camera-video">Video</a> </li>
   
   <li> <a href="#rocket-installation">Installation</a> </li>
   
@@ -38,12 +37,9 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
   <li><a href="#email-support">Support</a></li>
   
 </ul>
----
-:video_camera: Video
----
-
-<iframe  title="YouTube video player" width="700" height="500" src="https://www.youtube.com/watch?v=5rhigwURrYY" frameborder="0" allowfullscreen></iframe>
- 
+<p align = "center">
+<iframe width="700" src="https://www.youtube.com/embed/5rhigwURrYY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
 ---
 
 <p align="center"><img width="700" src="./assets/DemoGif.gif"></p>

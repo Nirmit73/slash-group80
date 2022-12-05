@@ -126,9 +126,9 @@ There is an option to send emails to customers using a parameter that accepts a 
 
 :open_file_folder: Document Generated
 ---
-To have a better understanding of the code, please click on the [link](https://sumanthbsundar.github.io/slash_doc/) provided below.
+To have a better understanding of the code, please click on the [link](https://spark1217.github.io/slash-group32/src/index.html) provided below.
 
-[Github Pages](https://sumanthbsundar.github.io/slash_doc/)
+[Github Pages](https://spark1217.github.io/slash-group32/src/index.html)
 
 
 :sparkles: Contributors

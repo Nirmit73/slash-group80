@@ -38,9 +38,8 @@ Slash is a website that scrapes the most popular e-commerce websites to get the 
 </ul>
 ---
 :video_camera: Video
----
-[![Video Explainer]("./assets/video.jpg")](https://www.youtube.com/watch?v=5rhigwURrYY)
----
+
+[![Introducing Slash](https://github.com/spark1217/slash-group32/blob/main/assets/video.jpg)](https://youtu.be/5rhigwURrYY "Introducing Slash")
 
 <p align="center"><img width="700" src="./assets/DemoGif.gif"></p>
 
